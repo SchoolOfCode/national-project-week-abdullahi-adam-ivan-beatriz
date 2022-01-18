@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function QuestionInput({ onSubmitClick }) {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(""); //stored each field of the form as a state, gives us nice utility with the setField function built in
   const [name, setName] = useState("");
   const [question, setQuestion] = useState("");
   const [code, setCode] = useState("");
@@ -9,6 +9,7 @@ function QuestionInput({ onSubmitClick }) {
   const [whatDontUnderstand, setWhatDontUnderstand] = useState("");
 
   function handleChangeTitle(event) {
+    //these functions read the value of each input field and store the data ready for the form to be submit
     setTitle(event.target.value);
   }
 
@@ -32,9 +33,9 @@ function QuestionInput({ onSubmitClick }) {
   }
 
   function handleSubmit(event) {
-    // Stop the page from refreshing as the form will try and submit and refresh by default
-    event.preventDefault();
+    event.preventDefault(); // Stop the page from refreshing as the form will try and submit and refresh by default
     onSubmitClick({
+      //when the forms submitted this passes an object
       title: title,
       name: name,
       question: question,
