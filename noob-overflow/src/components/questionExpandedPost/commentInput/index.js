@@ -22,10 +22,7 @@ function CommentInput({ onSubmitClick }) {
       <h3>Your Name:</h3>
       <input onChange={handleChangeAuthor} value={author} />
       <h3>Your Comment:</h3>
-      <input
-        onChange={(handleChangeAuthor, handleChangeComment)}
-        value={comment}
-      />
+      <input onChange={handleChangeComment} value={comment} />
       <button>Submit</button>
     </form>
   );

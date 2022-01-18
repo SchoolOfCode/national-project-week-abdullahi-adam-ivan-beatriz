@@ -1,8 +1,9 @@
+import { useState } from "react";
 import "./App.css";
 import { testData, testComment } from "./testData";
 import QuestionExpanded from "./components/questionExpandedPost";
 import CommentList from "./components/questionExpandedPost/commentList";
-import { useState } from "react";
+import QuestionInput from "./components/questionInput";
 import CommentInput from "./components/questionExpandedPost/commentInput";
 
 function App() {
@@ -16,15 +17,16 @@ function App() {
     setComments([...comments, comment]); // put both the author and comment as the object returned from on submit click
   }
 
-  // function addQuestions(question) {
-  //   if (questions.includes(question)) {
-  //     return;
-  //   }
-  //   setQuestions([...questions, question]);
-  // }
+  function addQuestions(question) {
+    if (questions.includes(question)) {
+      return;
+    }
+    setQuestions([...questions, question]);
+  }
 
   return (
     <div>
+      <QuestionInput onSubmitClick={addQuestions} />
       <QuestionExpanded {...questions[0]} />
       <CommentList comments={comments} />
       <CommentInput onSubmitClick={addComment} />
