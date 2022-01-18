@@ -7,6 +7,7 @@ import QuestionInput from "./components/questionInput";
 import CommentInput from "./components/questionExpandedPost/commentInput";
 
 function App() {
+  //storing both comments and questions in state allows us to rerender on change
   const [comments, setComments] = useState(testComment);
   const [questions, setQuestions] = useState(testData);
 
@@ -21,7 +22,7 @@ function App() {
     if (questions.includes(question)) {
       return;
     }
-    setQuestions([...questions, question]);
+    setQuestions([...questions, question]); // all form fields returned as an object allows us to spread and place the new data at the end of our array
     console.log(questions);
   }
 

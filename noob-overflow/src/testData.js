@@ -1,5 +1,6 @@
 //An object to build out our question post that includes the title, name of the poster, the question,  some code, what they dont understand & what they have tried already
 
+//test data before we hook up the backend
 export const testData = [
   {
     title: "cant use variable outside function",
