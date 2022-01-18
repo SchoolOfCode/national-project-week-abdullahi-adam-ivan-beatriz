@@ -7,13 +7,14 @@ function QuestionExpanded({
   whatDontUnderstand,
 }) {
   return (
-    <div class="questionPost">
-      <h2>{title}</h2>
-      <h3>{name}</h3>
-      <h3>{question}</h3>
-      <p>{code} FIND SOLUTION TO CODE</p>
-      <p>{triedAlready}</p>
-      <p>{whatDontUnderstand}</p>
+    <div className="questionPost">
+      <h2>Title: {title}</h2>
+      <h3>Author: {name}</h3>
+      <h3>Question: {question}</h3>
+      <h3>Do you have code?</h3>
+      <code>{code}</code>
+      <p>What have you tried already? {triedAlready}</p>
+      <p>What dont you understand?{whatDontUnderstand}</p>
     </div>
   );
 }

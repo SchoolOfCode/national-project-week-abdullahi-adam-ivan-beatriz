@@ -1,10 +1,10 @@
 import Comment from "../Comment";
 
-function CommentList({ testComment }) {
+function CommentList({ comments }) {
   return (
     <div>
-      {testComment.map(function (author, index) {
-        return <Comment author={author} key={index} />;
+      {comments.map(function (author, index) {
+        return <Comment {...author} key={index} />;
       })}
     </div>
   );
