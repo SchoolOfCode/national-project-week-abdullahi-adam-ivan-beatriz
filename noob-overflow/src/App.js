@@ -22,6 +22,7 @@ function App() {
       return;
     }
     setQuestions([...questions, question]);
+    console.log(questions);
   }
 
   return (
