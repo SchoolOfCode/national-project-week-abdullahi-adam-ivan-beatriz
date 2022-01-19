@@ -24,11 +24,9 @@ function App() {
   async function fetchAllQuestion() {
     const response = await fetch(`${URL}/questions`, {
       method: "GET",
-      headers: {
-        "Content-Type": "text/plain",
-      },
       mode: "no-cors",
     });
+
     const data = await response.json();
     console.log(data, data.payload);
     setQuestions([...data.payload]);
@@ -42,6 +40,7 @@ function App() {
     const response = await fetch(`${URL}/questions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      mode: "no-cors",
       body: JSON.stringify(questionObject),
     });
     console.log(questionObject);
