@@ -62,7 +62,7 @@ function App() {
     const response = await fetch(`${URL}/comments/${questionId}`, {
       method: "GET",
     });
-    const data = response.json();
+    const data = await response.json();
     setComments(data.payload);
   }
 
@@ -72,7 +72,8 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...commentObject, questionId: questionId }),
     });
-    const data = response.json();
+    const data = await response.json();
+    console.log(data);
     setComments([...comments, data.payload[0]]);
   }
 
