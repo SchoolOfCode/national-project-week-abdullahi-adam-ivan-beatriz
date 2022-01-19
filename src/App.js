@@ -19,7 +19,13 @@ function App() {
     triedalready: "",
     whatdontunderstand: "",
   });
+  const [commentObject, setCommentObject] = useState({
+    author: "",
+    comment: "",
+  });
+  const [questionId, setQuestionId] = useState(0);
   const [questionAdded, setQuestionAdded] = useState(false);
+  const [commentAdded, setCommentAdded] = useState(false);
 
   async function fetchAllQuestion() {
     const response = await fetch(`${URL}/questions`, {
@@ -52,11 +58,36 @@ function App() {
     }
   }, [questionAdded]);
 
+  async function getComments() {
+    const response = await fetch(`${URL}/comments/${questionId}`, {
+      method: "GET",
+    });
+    const data = response.json();
+    setComments(data.payload);
+  }
+
+  async function postComment() {
+    const response = await fetch(`${URL}/comments`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...commentObject, questionId: questionId }),
+    });
+    const data = response.json();
+    setComments([...comments, data.payload[0]]);
+  }
+
+  useEffect(() => {
+    if (commentAdded) {
+      postComment();
+    }
+  }, [commentAdded]);
+
   function addComment(comment) {
     if (comments.includes(comment)) {
       return;
     }
-    setComments([...comments, comment]); // put both the author and comment as the object returned from on submit click
+    setCommentAdded(true);
+    // put both the author and comment as the object returned from on submit click
   }
 
   function addQuestions(question) {
@@ -64,8 +95,7 @@ function App() {
       return;
     }
     setQuestionAdded(true);
-    setQuestions([...questions, question]); // all form fields returned as an object allows us to spread and place the new data at the end of our array
-    console.log(questions);
+    // all form fields returned as an object allows us to spread and place the new data at the end of our array
   }
 
   return (
@@ -77,7 +107,11 @@ function App() {
       />
       <QuestionExpanded {...questions[0]} />
       <CommentList comments={comments} />
-      <CommentInput onSubmitClick={addComment} />
+      <CommentInput
+        commentObject={commentObject}
+        setCommentObject={setCommentObject}
+        onSubmitClick={addComment}
+      />
     </div>
   );
 }

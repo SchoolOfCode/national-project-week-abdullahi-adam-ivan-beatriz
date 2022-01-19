@@ -1,28 +1,24 @@
-import { useState } from "react";
-
-function CommentInput({ onSubmitClick }) {
-  const [comment, setComment] = useState("");
-  const [author, setAuthor] = useState("");
-
+function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
   function handleChangeAuthor(event) {
-    setAuthor(event.target.value);
+    setCommentObject({ ...commentObject, author: event.target.value });
   }
 
   function handleChangeComment(event) {
-    setComment(event.target.value);
+    setCommentObject({ ...commentObject, comment: event.target.value });
   }
 
-  function handleSubmit(event) {
-    // Stop the page from refreshing as the form will try and submit and refresh by default
-    event.preventDefault();
-    onSubmitClick({ author: author, comment: comment });
-  }
   return (
-    <form onSubmit={handleSubmit} className="comment-input">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmitClick();
+      }}
+      className="comment-input"
+    >
       <h3>Your Name:</h3>
-      <input onChange={handleChangeAuthor} value={author} />
+      <input onChange={handleChangeAuthor} value={commentObject.author} />
       <h3>Your Comment:</h3>
-      <input onChange={handleChangeComment} value={comment} />
+      <input onChange={handleChangeComment} value={commentObject.comment} />
       <button>Submit</button>
     </form>
   );
