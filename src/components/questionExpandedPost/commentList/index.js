@@ -1,10 +1,15 @@
 import Comment from "../Comment";
 
-function CommentList({ comments }) {
+function CommentList({ comments, questionId }) {
+  let commentArr = comments.filter((comment) => {
+    return comment.question_id === questionId;
+  });
+
   return (
     <div>
-      {comments.map(function (author, index) {
-        return <Comment {...author} key={index} />;
+      {commentArr.map(function (comment, index) {
+        console.log(comment);
+        return <Comment {...comment} key={index} />;
       })}
     </div>
   );
