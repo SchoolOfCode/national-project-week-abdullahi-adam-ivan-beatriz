@@ -13,8 +13,8 @@ function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
         e.preventDefault();
         onSubmitClick();
       }}
-      className="comment-input"
-    >
+      className="comment-input">
+     
       <h3>Your Name:</h3>
       <input onChange={handleChangeName} value={commentObject.name} />
       <h3>Your Comment:</h3>
