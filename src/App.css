@@ -1,4 +1,6 @@
 .questionPost {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   width: 50%;
   border: 3px solid green;
@@ -11,6 +13,8 @@
   padding: 10px;
 }
 .comment-input {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   width: 50%;
   border: 3px solid green;
@@ -18,6 +22,8 @@
 }
 
 .question-input {
+  display: flex;
+  flex-direction:column;
   margin: auto;
   width: 50%;
   border: 3px solid green;
