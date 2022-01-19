@@ -16,7 +16,7 @@ export const testData = [
 export const testComment = [
   { author: "Chris Meah", comment: "Break it down!" },
   { author: "Joe Bloggs 2", comment: "Google it" },
-  { author: "Joe Bloggs 3", comment: "u r stoopid" },
+  { author: "Joe Bloggs 3", comment: "i dont know" },
   {
     author: "Joe Bloggs 4",
     comment:
