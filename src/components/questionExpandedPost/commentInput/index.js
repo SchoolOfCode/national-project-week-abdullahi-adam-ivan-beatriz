@@ -1,6 +1,6 @@
 function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
-  function handleChangeAuthor(event) {
-    setCommentObject({ ...commentObject, author: event.target.value });
+  function handleChangeName(event) {
+    setCommentObject({ ...commentObject, name: event.target.value });
   }
 
   function handleChangeComment(event) {
@@ -16,7 +16,7 @@ function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
       className="comment-input"
     >
       <h3>Your Name:</h3>
-      <input onChange={handleChangeAuthor} value={commentObject.author} />
+      <input onChange={handleChangeName} value={commentObject.name} />
       <h3>Your Comment:</h3>
       <input onChange={handleChangeComment} value={commentObject.comment} />
       <button>Submit</button>

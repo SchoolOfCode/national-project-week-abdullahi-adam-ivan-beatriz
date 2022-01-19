@@ -20,7 +20,7 @@ function App() {
     whatdontunderstand: "",
   });
   const [commentObject, setCommentObject] = useState({
-    author: "",
+    name: "",
     comment: "",
   });
   const [questionId, setQuestionId] = useState(0);
