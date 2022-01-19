@@ -5,6 +5,7 @@ import QuestionExpanded from "./components/questionExpandedPost";
 import CommentList from "./components/questionExpandedPost/commentList";
 import QuestionInput from "./components/questionInput";
 import CommentInput from "./components/questionExpandedPost/commentInput";
+import QuestionList from "./components/questionList";
 
 function App() {
   const URL = "https://nooboverflow.herokuapp.com";
@@ -26,6 +27,7 @@ function App() {
   const [questionId, setQuestionId] = useState(0);
   const [questionAdded, setQuestionAdded] = useState(false);
   const [commentAdded, setCommentAdded] = useState(false);
+  const [questionClicked, setQuestionClicked] = useState(false);
 
   async function fetchAllQuestion() {
     const response = await fetch(`${URL}/questions`, {
@@ -98,8 +100,22 @@ function App() {
     // all form fields returned as an object allows us to spread and place the new data at the end of our array
   }
 
+  function handleQuestionClick(e) {
+    setQuestionId(e.target.id);
+    setQuestionClicked(true);
+    console.log(e.target.id);
+  }
+
+  useEffect(() => {
+    if (questionClicked) {
+      getComments();
+      setQuestionClicked(false);
+    }
+  }, [questionClicked]);
+
   return (
     <div>
+      <QuestionList questions={questions} handleClick={handleQuestionClick} />
       <QuestionInput
         questionObject={questionObject}
         setQuestionObject={setQuestionObject}
