@@ -24,6 +24,10 @@ function App() {
   async function fetchAllQuestion() {
     const response = await fetch(`${URL}/questions`, {
       method: "GET",
+      headers: {
+        "Content-Type": "text/plain",
+      },
+      mode: "no-cors",
     });
     const data = await response.json();
     console.log(data, data.payload);
