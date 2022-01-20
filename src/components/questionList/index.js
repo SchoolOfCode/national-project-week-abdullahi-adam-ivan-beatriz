@@ -3,6 +3,7 @@ import QuestionListItem from "../questionListItem";
 function QuestionList({ questions, handleClick,setQuestionIndex }) {
   return (
     <div>
+    <h1 className="titleQuestions">Questions</h1>
       {questions.map(function (question, index) {
         return (
           <QuestionListItem
