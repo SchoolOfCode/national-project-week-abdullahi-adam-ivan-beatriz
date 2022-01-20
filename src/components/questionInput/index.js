@@ -48,17 +48,34 @@ function QuestionInput({ onSubmitClick, questionObject, setQuestionObject }) {
       <h3>Your Name:</h3>
       <input onChange={handleChangeName} value={questionObject.name} />
       <h3>Your Question:</h3>
-      <input onChange={handleChangeQuestion} value={questionObject.question} />
+      <textarea
+        name="content"
+        id="form-question"
+        onChange={handleChangeQuestion}
+        value={questionObject.question}
+      />
       <h3>Do you have code?:</h3>
-      <input onChange={handleChangeCode} value={questionObject.code} />
+      <textarea
+        name="content"
+        id="form-question"
+        onChange={handleChangeCode}
+        value={questionObject.code}
+      />
       <h3>What have you tired already?:</h3>
-      <input onChange={handleChangeTried} value={questionObject.triedalready} />
+      <textarea
+        name="content"
+        id="form-question"
+        onChange={handleChangeTried}
+        value={questionObject.triedalready}
+      />
       <h3>What dont you understand?:</h3>
-      <input
+      <textarea
+        name="content"
+        id="form-question"
         onChange={handleChangeUnderstand}
         value={questionObject.whatdontunderstand}
       />
-      <button className='buttonQuestionInput'>Submit</button>
+      <button className="buttonQuestionInput">Submit</button>
     </form>
   );
 }
