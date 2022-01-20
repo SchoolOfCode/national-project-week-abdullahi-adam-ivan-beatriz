@@ -122,10 +122,10 @@ function App() {
         <Link to="/">
           <h1>Home</h1>
         </Link>
-        <Link to="/">
+        <Link to="/Profile">
           <h1>Profile</h1>
         </Link>
-        <Link to="/articals">
+        <Link to="/articles">
           <h1>Articles</h1>
         </Link>
         <Link to="/questions/askquestion">
