@@ -10,8 +10,8 @@ import QuestionList from "./components/questionList";
 function App() {
   const URL = "https://nooboverflow.herokuapp.com";
   //storing both comments and questions in state allows us to rerender on change
-  const [comments, setComments] = useState(testComment);
-  const [questions, setQuestions] = useState(testData);
+  const [comments, setComments] = useState([]);
+  const [questions, setQuestions] = useState([]);
   const [questionObject, setQuestionObject] = useState({
     title: "",
     code: "",
@@ -34,7 +34,6 @@ function App() {
       method: "GET",
     });
     const data = await response.json();
-    console.log(data, data.payload);
     setQuestions([...data.payload]);
   }
 
@@ -75,7 +74,7 @@ function App() {
       body: JSON.stringify({ ...commentObject, questionId: questionId }),
     });
     const data = await response.json();
-    console.log(data);
+    console.log(data.payload[0]);
     setComments([...comments, data.payload[0]]);
   }
 
@@ -86,9 +85,9 @@ function App() {
   }, [commentAdded]);
 
   function addComment(comment) {
-    if (comments.includes(comment)) {
-      return;
-    }
+    // if (comments.includes(comment)) {
+    //   return;
+    // }
     setCommentAdded(true);
     // put both the author and comment as the object returned from on submit click
   }
@@ -101,10 +100,10 @@ function App() {
     // all form fields returned as an object allows us to spread and place the new data at the end of our array
   }
 
-  function handleQuestionClick(e) {
-    setQuestionId(e.target.id);
+  function handleQuestionClick(id) {
+    setQuestionId(id);
     setQuestionClicked(true);
-    console.log(e.target.id);
+    console.log(questionId, comments);
   }
 
   useEffect(() => {
@@ -116,14 +115,14 @@ function App() {
 
   return (
     <div>
-      <QuestionList questions={questions} handleClick={handleQuestionClick} />
+      <QuestionList questions={questions}  handleClick={handleQuestionClick} />
       <QuestionInput
         questionObject={questionObject}
         setQuestionObject={setQuestionObject}
         onSubmitClick={addQuestions}
       />
       <QuestionExpanded {...questions[0]} />
-      <CommentList comments={comments} />
+      <CommentList questionId={questionId} comments={comments} />
       <CommentInput
         commentObject={commentObject}
         setCommentObject={setCommentObject}

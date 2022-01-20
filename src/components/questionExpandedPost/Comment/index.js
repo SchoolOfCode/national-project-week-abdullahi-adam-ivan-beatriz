@@ -1,7 +1,7 @@
-function Comment({ author, comment }) {
+function Comment({ name, comment }) {
   return (
     <div className="comment">
-      <h3>Author: {author}</h3>
+      <h3>Author:{name}</h3>
       <p>{comment}</p>
     </div>
   );
