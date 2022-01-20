@@ -1,5 +1,4 @@
 function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
- 
   function handleChangeName(event) {
     setCommentObject({ ...commentObject, name: event.target.value });
   }
@@ -14,12 +13,17 @@ function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
         e.preventDefault();
         onSubmitClick();
       }}
-      className="comment-input">
-     
+      className="comment-input"
+    >
       <h3>Your Name:</h3>
       <input onChange={handleChangeName} value={commentObject.name} />
       <h3>Your Comment:</h3>
-      <input onChange={handleChangeComment} value={commentObject.comment} />
+      <textarea
+        name="content"
+        id="form-question"
+        onChange={handleChangeComment}
+        value={commentObject.comment}
+      />
       <button>Submit</button>
     </form>
   );

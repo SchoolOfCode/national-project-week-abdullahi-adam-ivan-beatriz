@@ -68,7 +68,7 @@ function QuestionInput({ onSubmitClick, questionObject, setQuestionObject }) {
         onChange={handleChangeTried}
         value={questionObject.triedalready}
       />
-      <h3>What dont you understand?:</h3>
+      <h3>Your Comments:</h3>
       <textarea
         name="content"
         id="form-question"
