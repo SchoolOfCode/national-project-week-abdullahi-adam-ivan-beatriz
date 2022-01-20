@@ -1,4 +1,5 @@
 function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
+ 
   function handleChangeName(event) {
     setCommentObject({ ...commentObject, name: event.target.value });
   }

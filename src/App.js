@@ -1,3 +1,4 @@
+import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.css";
 import { testData, testComment } from "./testData";
@@ -25,6 +26,7 @@ function App() {
     comment: "",
   });
   const [questionId, setQuestionId] = useState(0);
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [questionAdded, setQuestionAdded] = useState(false);
   const [commentAdded, setCommentAdded] = useState(false);
   const [questionClicked, setQuestionClicked] = useState(false);
@@ -73,23 +75,21 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...commentObject, questionId: questionId }),
     });
+
     const data = await response.json();
-    console.log(data.payload[0]);
+    console.log(commentObject, data.payload[0]);
     setComments([...comments, data.payload[0]]);
   }
 
   useEffect(() => {
     if (commentAdded) {
       postComment();
+      setCommentAdded(false);
     }
   }, [commentAdded]);
 
   function addComment(comment) {
-    // if (comments.includes(comment)) {
-    //   return;
-    // }
     setCommentAdded(true);
-    // put both the author and comment as the object returned from on submit click
   }
 
   function addQuestions(question) {
@@ -115,19 +115,58 @@ function App() {
 
   return (
     <div>
-      <QuestionList questions={questions}  handleClick={handleQuestionClick} />
-      <QuestionInput
+      <nav>
+        <Link to="/">
+          <h1>NOOBOVERFLOW</h1>
+        </Link>
+        <Link to="/questions/askquestion">
+          <button>askQuestion</button>
+        </Link>
+      </nav>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <QuestionList
+              questions={questions}
+              handleClick={handleQuestionClick}
+              setQuestionIndex={setQuestionIndex}
+            />
+          }
+        />
+        <Route
+          path={`/questions/${questionId}`}
+          element={
+            <QuestionExpanded
+              {...questions[questionIndex]}
+              commentObject={commentObject}
+              setCommentObject={setCommentObject}
+              onSubmitClick={addComment}
+              questionId={questionId}
+              comments={comments}
+            />
+          }
+        />
+        <Route
+          path={"/questions/askquestion"}
+          element={
+            <QuestionInput
+              questionObject={questionObject}
+              setQuestionObject={setQuestionObject}
+              onSubmitClick={addQuestions}
+            />
+          }
+        />
+      </Routes>
+
+      {/* <QuestionList questions={questions} handleClick={handleQuestionClick} /> */}
+      {/* <QuestionInput
         questionObject={questionObject}
         setQuestionObject={setQuestionObject}
         onSubmitClick={addQuestions}
-      />
-      <QuestionExpanded {...questions[0]} />
-      <CommentList questionId={questionId} comments={comments} />
-      <CommentInput
-        commentObject={commentObject}
-        setCommentObject={setCommentObject}
-        onSubmitClick={addComment}
-      />
+      /> */}
+      {/* <QuestionExpanded {...questions[0]} /> */}
     </div>
   );
 }
