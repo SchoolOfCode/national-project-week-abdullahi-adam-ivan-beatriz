@@ -5,8 +5,11 @@ body {
     "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
 .navbar {
-
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -16,15 +19,13 @@ body {
   top: 0;
   margin-bottom: 40px;
   z-index: 1;
-  
-
 }
-.page-title{
-  font-family: OCR A Std, monospace
+.page-title {
+  font-family: OCR A Std, monospace;
 }
-.navbar-links{
+.navbar-links {
   color: black;
-  text-decoration:#d81bc0 underline
+  text-decoration: #d81bc0 underline;
 }
 
 #form-question {
@@ -102,8 +103,7 @@ body {
   margin-bottom: 0rem;
   line-height: 1;
 }
-.expandedQuestion{
-  
+.expandedQuestion {
 }
 .question {
   background-color: rgba(162, 212, 238, 0.993);
@@ -148,7 +148,7 @@ body {
 }
 .buttonQuestionInput {
   display: inline-block;
-  background-color:  #d81bc0;
+  background-color: #d81bc0;
   border-radius: 10px;
   border: 4px double #cccccc;
   color: #eeeeee;
