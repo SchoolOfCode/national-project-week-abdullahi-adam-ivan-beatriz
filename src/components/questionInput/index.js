@@ -42,6 +42,7 @@ function QuestionInput({ onSubmitClick, questionObject, setQuestionObject }) {
       }}
       className="question-input"
     >
+      <h1>Ask a question</h1>
       <h3>Title:</h3>
       <input onChange={handleChangeTitle} value={questionObject.title} />
       <h3>Your Name:</h3>
@@ -57,7 +58,7 @@ function QuestionInput({ onSubmitClick, questionObject, setQuestionObject }) {
         onChange={handleChangeUnderstand}
         value={questionObject.whatdontunderstand}
       />
-      <button>Submit</button>
+      <button className='buttonQuestionInput'>Submit</button>
     </form>
   );
 }

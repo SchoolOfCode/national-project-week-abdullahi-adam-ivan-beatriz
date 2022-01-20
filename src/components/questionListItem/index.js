@@ -7,8 +7,8 @@ function QuestionListItem({ question, title, handleClick }) {
           handleClick(e);
         }}
       >
-        <h2>{title}</h2>
-        <h3>{question}</h3>
+        <h2 className="titleQuestionListItem" >{title}</h2>
+        <h3 className="questionQuestionListItem">{question}</h3>
       </button>
     </div>
   );

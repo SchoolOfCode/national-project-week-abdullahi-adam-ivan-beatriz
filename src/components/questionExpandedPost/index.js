@@ -8,9 +8,9 @@ function QuestionExpanded({
 }) {
   return (
     <div className="questionPost">
-      <h2>Title: {title}</h2>
-      <h3>Author: {name}</h3>
-      <p>Question: {question}</p>
+      <h2 className="title">Title: {title}</h2>
+      <h3 className="author">Author: {name}</h3>
+      <p className="question">Question: {question}</p>
       <h4>Do you have code?</h4>
       <code>{code}</code>
       <p>What have you tried already? {triedAlready}</p>
