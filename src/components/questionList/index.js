@@ -1,6 +1,6 @@
 import QuestionListItem from "../questionListItem";
 
-function QuestionList({ questions, handleClick,setQuestionIndex }) {
+function QuestionList({ questions, handleClick, setQuestionIndex }) {
   return (
     <div>
       <h2 className="titleQuestions">Questions</h2>
