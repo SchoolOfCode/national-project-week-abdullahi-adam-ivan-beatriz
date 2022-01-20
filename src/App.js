@@ -117,7 +117,16 @@ function App() {
     <div>
       <nav>
         <Link to="/">
-          <h1>NOOBOVERFLOW</h1>
+          <h1>N00B OverFlow</h1>
+        </Link>
+        <Link to="/">
+          <h1>Home</h1>
+        </Link>
+        <Link to="/">
+          <h1>Profile</h1>
+        </Link>
+        <Link to="/articals">
+          <h1>Articles</h1>
         </Link>
         <Link to="/questions/askquestion">
           <button>askQuestion</button>
