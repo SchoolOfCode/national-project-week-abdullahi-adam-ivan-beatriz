@@ -4,6 +4,8 @@ import "./App.css";
 import QuestionExpanded from "./components/questionExpandedPost";
 import QuestionInput from "./components/questionInput";
 import QuestionList from "./components/questionList";
+import TopHeadlinesList from "./components/articleList";
+import { helpDevLinks } from "./testData";
 
 function App() {
   let navigate = useNavigate();
@@ -177,6 +179,10 @@ function App() {
               questionId={questionId}
             />
           }
+        />
+        <Route
+          path={"/articles"}
+          element={<TopHeadlinesList articles={helpDevLinks} />}
         />
       </Routes>
     </div>
