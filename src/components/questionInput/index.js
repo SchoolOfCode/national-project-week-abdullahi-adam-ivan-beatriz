@@ -1,10 +1,12 @@
-function QuestionInput({ onSubmitClick, questionObject, setQuestionObject }) {
-  // const [title, setTitle] = useState(""); //stored each field of the form as a state, gives us nice utility with the setField function built in
-  // const [name, setName] = useState("");
-  // const [question, setQuestion] = useState("");
-  // const [code, setCode] = useState("");
-  // const [triedAlready, setTriedAlready] = useState("");
-  // const [whatDontUnderstand, setWhatDontUnderstand] = useState("");
+import { useNavigate } from "react-router-dom";
+
+function QuestionInput({
+  questionId,
+  onSubmitClick,
+  questionObject,
+  setQuestionObject,
+}) {
+  let navigate = useNavigate();
 
   function handleChangeTitle(event) {
     //these functions read the value of each input field and store the data ready for the form to be submit
@@ -39,6 +41,8 @@ function QuestionInput({ onSubmitClick, questionObject, setQuestionObject }) {
       onSubmit={(e) => {
         e.preventDefault();
         onSubmitClick();
+
+        // navigate(`/questions/${questionId}`);
       }}
       className="question-input"
     >
@@ -64,14 +68,14 @@ function QuestionInput({ onSubmitClick, questionObject, setQuestionObject }) {
       <h3>What have you tired already?:</h3>
       <textarea
         name="content"
-        id="form-question"
+        id="form-question1"
         onChange={handleChangeTried}
         value={questionObject.triedalready}
       />
       <h3>What dont you understand?:</h3>
       <textarea
         name="content"
-        id="form-question"
+        id="form-question2"
         onChange={handleChangeUnderstand}
         value={questionObject.whatdontunderstand}
       />

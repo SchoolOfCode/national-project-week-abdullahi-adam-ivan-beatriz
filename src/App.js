@@ -1,14 +1,12 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.css";
-import { testData, testComment } from "./testData";
 import QuestionExpanded from "./components/questionExpandedPost";
-import CommentList from "./components/questionExpandedPost/commentList";
 import QuestionInput from "./components/questionInput";
-import CommentInput from "./components/questionExpandedPost/commentInput";
 import QuestionList from "./components/questionList";
 
 function App() {
+  let navigate = useNavigate();
   const URL = "https://nooboverflow.herokuapp.com";
   //storing both comments and questions in state allows us to rerender on change
   const [comments, setComments] = useState([]);
@@ -53,6 +51,18 @@ function App() {
     const data = await response.json();
     console.log(data);
     setQuestions([...questions, data.payload[0]]);
+    setQuestionId(data.payload[0].question_id);
+    console.log(questionId);
+    alert("Your question has been posted");
+    setQuestionObject({
+      title: "",
+      code: "",
+      name: "",
+      question: "",
+      triedalready: "",
+      whatdontunderstand: "",
+    });
+    // navigate(`/questions/${questionId}`);
   }
   useEffect(() => {
     if (questionAdded) {
@@ -164,6 +174,7 @@ function App() {
               questionObject={questionObject}
               setQuestionObject={setQuestionObject}
               onSubmitClick={addQuestions}
+              questionId={questionId}
             />
           }
         />
