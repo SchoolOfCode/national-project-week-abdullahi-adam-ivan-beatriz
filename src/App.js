@@ -127,19 +127,19 @@ function App() {
     <div>
       <nav className="navbar">
         <Link to="/">
-          <h1>N00B OverFlow</h1>
+          <h1 className="navbar-links page-title">N00B OverFlow</h1>
         </Link>
         <Link to="/">
-          <h1>Home</h1>
+          <h1 className="navbar-links">Home</h1>
         </Link>
         <Link to="/Profile">
-          <h1>Profile</h1>
+          <h1 className="navbar-links"> Profile</h1>
         </Link>
         <Link to="/articles">
-          <h1>Articles</h1>
+          <h1 className="navbar-links">Articles</h1>
         </Link>
         <Link to="/questions/askquestion">
-          <h1>Ask A Question</h1>
+          <h1 className="navbar-links">Ask A Question</h1>
         </Link>
       </nav>
 

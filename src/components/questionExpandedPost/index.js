@@ -14,15 +14,15 @@ function QuestionExpanded({
   onSubmitClick,
 }) {
   return (
-    <div>
+    <div className="expandedQuestion">
       <section className="questionPost">
-        <h2>Title: {title}</h2>
-        <h3>Author: {name}</h3>
-        <p>Question: {question}</p>
+        <h2 className="title"> {title}</h2>
+        <h3> {name}</h3>
+        <p><b>Question:</b> {question}</p>
         <h4>Do you have code?</h4>
         <code>{code}</code>
-        <p>What have you tried already? {triedAlready}</p>
-        <p>What dont you understand?{whatDontUnderstand}</p>
+        <p><b>What have you tried already?</b> {triedAlready}</p>
+        <p><b>Your comment</b>{whatDontUnderstand}</p>
       </section>
       <section className="comment-section">
         <CommentList questionId={questionId} comments={comments} />
