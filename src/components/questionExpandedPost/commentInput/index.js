@@ -13,7 +13,7 @@ function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
         e.preventDefault();
         onSubmitClick();
       }}
-      className="comment-input"
+      className="question-input"
     >
       <h3>Your Name:</h3>
       <input onChange={handleChangeName} value={commentObject.name} />
@@ -24,7 +24,7 @@ function CommentInput({ onSubmitClick, commentObject, setCommentObject }) {
         onChange={handleChangeComment}
         value={commentObject.comment}
       />
-      <button>Submit</button>
+      <button className="buttonQuestionInput">Submit</button>
     </form>
   );
 }
