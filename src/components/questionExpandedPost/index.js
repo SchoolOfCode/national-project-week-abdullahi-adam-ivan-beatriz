@@ -5,8 +5,8 @@ function QuestionExpanded({
   name,
   question,
   code,
-  triedAlready,
-  whatDontUnderstand,
+  triedalready,
+  whatdontunderstand,
   questionId,
   comments,
   commentObject,
@@ -18,11 +18,18 @@ function QuestionExpanded({
       <section className="questionPost">
         <h2 className="title"> {title}</h2>
         <h3> {name}</h3>
-        <p><b>Question:</b> {question}</p>
+        <p>
+          <b>Question:</b> {question}
+        </p>
         <h4>Do you have code?</h4>
         <code>{code}</code>
-        <p><b>What have you tried already?</b> {triedAlready}</p>
-        <p><b>Your comment</b>{whatDontUnderstand}</p>
+        <p>
+          <b>What have you tried already?</b> {triedalready}
+        </p>
+        <p>
+          <b>Your comment:</b>
+          {" " + whatdontunderstand}
+        </p>
       </section>
       <section className="comment-section">
         <CommentList questionId={questionId} comments={comments} />
