@@ -159,14 +159,6 @@ function App() {
           }
         />
       </Routes>
-
-      {/* <QuestionList questions={questions} handleClick={handleQuestionClick} /> */}
-      {/* <QuestionInput
-        questionObject={questionObject}
-        setQuestionObject={setQuestionObject}
-        onSubmitClick={addQuestions}
-      /> */}
-      {/* <QuestionExpanded {...questions[0]} /> */}
     </div>
   );
 }
