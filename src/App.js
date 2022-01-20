@@ -115,7 +115,7 @@ function App() {
 
   return (
     <div>
-      <nav>
+      <nav className="navbar">
         <Link to="/">
           <h1>N00B OverFlow</h1>
         </Link>
@@ -129,7 +129,7 @@ function App() {
           <h1>Articles</h1>
         </Link>
         <Link to="/questions/askquestion">
-          <button>askQuestion</button>
+          <h1>Ask A Question</h1>
         </Link>
       </nav>
 
