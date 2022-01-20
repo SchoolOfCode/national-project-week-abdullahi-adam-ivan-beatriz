@@ -14,8 +14,8 @@ function QuestionExpanded({
   onSubmitClick,
 }) {
   return (
-    <div className="questionPost">
-      <section className="question-section">
+    <div>
+      <section className="questionPost">
         <h2>Title: {title}</h2>
         <h3>Author: {name}</h3>
         <p>Question: {question}</p>
