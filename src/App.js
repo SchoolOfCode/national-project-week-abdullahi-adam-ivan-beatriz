@@ -75,8 +75,8 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...commentObject, questionId: questionId }),
     });
-
     const data = await response.json();
+    setCommentObject({ name: "", comment: "" });
     console.log(commentObject, data.payload[0]);
     setComments([...comments, data.payload[0]]);
   }
