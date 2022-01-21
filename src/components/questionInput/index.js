@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-
 function QuestionInput({
   questionId,
   onSubmitClick,
@@ -68,14 +67,14 @@ function QuestionInput({
       <h3>What have you tired already?:</h3>
       <textarea
         name="content"
-        id="form-question1"
+        id="form-question"
         onChange={handleChangeTried}
         value={questionObject.triedalready}
       />
       <h3>Your Comments:</h3>
       <textarea
         name="content"
-        id="form-question2"
+        id="form-question"
         onChange={handleChangeUnderstand}
         value={questionObject.whatdontunderstand}
       />
