@@ -25,7 +25,7 @@ function QuestionExpanded({
         </p>
         <h4>Do you have code?</h4>
         <Highlight language="javascript">
-          <p>{code}</p>
+          <code>{code}</code>
         </Highlight>
         <p>
           <b>What have you tried already?</b> {triedalready}
