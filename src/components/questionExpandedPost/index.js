@@ -1,5 +1,7 @@
 import CommentList from "./commentList";
 import CommentInput from "./commentInput";
+import Highlight from "react-highlight";
+
 function QuestionExpanded({
   title,
   name,
@@ -22,7 +24,9 @@ function QuestionExpanded({
           <b>Question:</b> {question}
         </p>
         <h4>Do you have code?</h4>
-        <code>{code}</code>
+        <Highlight language="javascript">
+          <p>{code}</p>
+        </Highlight>
         <p>
           <b>What have you tried already?</b> {triedalready}
         </p>
