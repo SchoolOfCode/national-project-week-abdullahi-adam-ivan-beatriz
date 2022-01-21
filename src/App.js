@@ -184,6 +184,10 @@ function App() {
           path={"/articles"}
           element={<TopHeadlinesList articles={helpDevLinks} />}
         />
+        <Route
+          path="Profile"
+          element={<h2 className="titleQuestions">Coming Soon</h2>}
+        />
       </Routes>
     </div>
   );

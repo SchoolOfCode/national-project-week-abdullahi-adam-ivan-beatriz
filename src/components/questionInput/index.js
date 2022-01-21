@@ -36,50 +36,52 @@ function QuestionInput({
   }
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSubmitClick();
+    <div>
+      <h2 className="titleQuestions">Ask Your Question</h2>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmitClick();
 
-        // navigate(`/questions/${questionId}`);
-      }}
-      className="question-input"
-    >
-      <h1>Ask a question</h1>
-      <h3>Title:</h3>
-      <input onChange={handleChangeTitle} value={questionObject.title} />
-      <h3>Your Name:</h3>
-      <input onChange={handleChangeName} value={questionObject.name} />
-      <h3>Your Question:</h3>
-      <textarea
-        name="content"
-        id="form-question"
-        onChange={handleChangeQuestion}
-        value={questionObject.question}
-      />
-      <h3>Do you have code?:</h3>
-      <textarea
-        name="content"
-        id="form-question"
-        onChange={handleChangeCode}
-        value={questionObject.code}
-      />
-      <h3>What have you tired already?:</h3>
-      <textarea
-        name="content"
-        id="form-question"
-        onChange={handleChangeTried}
-        value={questionObject.triedalready}
-      />
-      <h3>Your Comments:</h3>
-      <textarea
-        name="content"
-        id="form-question"
-        onChange={handleChangeUnderstand}
-        value={questionObject.whatdontunderstand}
-      />
-      <button className="buttonQuestionInput">Submit</button>
-    </form>
+          // navigate(`/questions/${questionId}`);
+        }}
+        className="question-input"
+      >
+        <h3>Title:</h3>
+        <input onChange={handleChangeTitle} value={questionObject.title} />
+        <h3>Your Name:</h3>
+        <input onChange={handleChangeName} value={questionObject.name} />
+        <h3>Your Question:</h3>
+        <textarea
+          name="content"
+          id="form-question"
+          onChange={handleChangeQuestion}
+          value={questionObject.question}
+        />
+        <h3>Do you have code?:</h3>
+        <textarea
+          name="content"
+          id="form-question"
+          onChange={handleChangeCode}
+          value={questionObject.code}
+        />
+        <h3>What have you tired already?:</h3>
+        <textarea
+          name="content"
+          id="form-question"
+          onChange={handleChangeTried}
+          value={questionObject.triedalready}
+        />
+        <h3>Your Comments:</h3>
+        <textarea
+          name="content"
+          id="form-question"
+          onChange={handleChangeUnderstand}
+          value={questionObject.whatdontunderstand}
+        />
+        <button className="buttonQuestionInput">Submit</button>
+      </form>
+    </div>
   );
 }
 
